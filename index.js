@@ -18,6 +18,9 @@ function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
 
+
+
+
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -28,10 +31,16 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *    >counter1 is a closure and counter2 is not
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ *    >counter1 because it a function within a function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ *    >counter1 would be a scenario where you need to reuse the function with different paramaters being assigned. counter2 is more 
+ *     a one and done deal.
 */
 
 // counter1 code
@@ -56,11 +65,17 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
-
+    let inningPoints = Math.floor((Math.random()*3))
+    return inningPoints
+    
 }
+console.log(inning())
+console.log(inning())
+console.log(inning())
+console.log(inning())
+
 
 /* Task 3: finalScore()
 
