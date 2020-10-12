@@ -67,15 +67,11 @@ Write a function called `inning` that returns a random number of points that a t
 
 function inning(){
 
-    let inningPoints = Math.floor((Math.random()*3))
-    return inningPoints
+    return Math.floor((Math.random()*3))
+   
     
 }
-console.log(inning())
-console.log(inning())
-console.log(inning())
-console.log(inning())
-
+// console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -91,11 +87,19 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, num){
+  let finalScore = {Home:0, Away:0};
 
-  /*Code Here*/
+  for ( let i=0; i<num; i++) {
+    finalScore.Home += inning();
+    finalScore.Away += inning();
+  }
+  
+  return finalScore
 
 }
+
+console.log(finalScore(inning, 9))
 
 /* Task 4: 
 
@@ -118,8 +122,9 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inning, num) {
   /* CODE HERE */
 }
 
 
+// getinnings calls the rng
