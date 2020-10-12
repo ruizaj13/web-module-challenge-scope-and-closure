@@ -35,7 +35,7 @@ function processFirstItem(stringList, callback) {
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
- *    >counter1 because it a function within a function.
+ *    >counter1 because it is a function within a function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
@@ -68,8 +68,7 @@ Write a function called `inning` that returns a random number of points that a t
 function inning(){
 
     return Math.floor((Math.random()*3))
-   
-    
+      
 }
 // console.log(inning())
 
@@ -99,7 +98,7 @@ function finalScore(inning, num){
 
 }
 
-console.log(finalScore(inning, 9));
+// console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -123,7 +122,7 @@ Final Score: awayTeam - homeTeam */
 
 
 function scoreboard(getInningScore, inning, num) {
-  /* CODE HERE */
+  newObj={};
 }
 
 
