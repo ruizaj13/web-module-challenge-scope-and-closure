@@ -121,9 +121,30 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(getInningScore, inning, num) {
-  newObj={};
+function getInningScore (homeScores, awayScores, numberOfInnings) {
+  let homeTotal = 0;
+  let awayTotal = 0;
+  for (let i = 0; i < numberOfInnings; i++) {
+    homeTotal = homeTotal + homeScores[i];
+    awayTotal = awayTotal + awayScores[i];
+    console.log(`Inning ${i + 1}: ${awayScores[i]} - ${homeScores[i]}`)
+  }
+  console.log(`Final Score: ${awayTotal} - ${homeTotal}`)
 }
 
+function scoreboard(inningScore, inningFunction, numberOfInnings) {
+  const homeScores = [];
+  const awayScores = [];
 
-// getinnings calls the rng
+  for (let i = 0; i < numberOfInnings; i++) {
+    homeScores[i] = inningFunction();
+    awayScores[i] = inningFunction();
+  }
+
+  return inningScore(homeScores, awayScores, numberOfInnings);
+}
+
+scoreboard(getInningScore, inning, 9);
+
+
+
