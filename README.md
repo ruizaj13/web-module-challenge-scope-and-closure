@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+    >Closure is the block level scope of a function
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,17 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  >Within the function, you can invoke a function with your chosen arguement (name) which will then invoke the function one level deeper to give you the desired result.
+
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  >Everything is the same minus the random number being generated on line 54
+
 c. What is the lexical scope of `newRoll`? 
+
+  block
 
 ### Task 2c - Exit Ticket
 

@@ -18,6 +18,9 @@ function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
 
+
+
+
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -28,10 +31,16 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *    >counter1 is a closure and counter2 is not
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ *    >counter1 because it is a function within a function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ *    >counter1 would be a scenario where you need to reuse the function with different paramaters being assigned. counter2 is more 
+ *     a one and done deal.
 */
 
 // counter1 code
@@ -56,11 +65,12 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
-
+    return Math.floor((Math.random()*3))
+      
 }
+// console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -76,11 +86,19 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, num){
+  let finalScore = {Home:0, Away:0};
 
-  /*Code Here*/
+  for ( let i=0; i<num; i++) {
+    finalScore.Home += inning();
+    finalScore.Away += inning();
+  }
+  
+  return finalScore
 
 }
+
+// console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +121,30 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore (homeScores, awayScores, numberOfInnings) {
+  let homeTotal = 0;
+  let awayTotal = 0;
+  for (let i = 0; i < numberOfInnings; i++) {
+    homeTotal = homeTotal + homeScores[i];
+    awayTotal = awayTotal + awayScores[i];
+    console.log(`Inning ${i + 1}: ${awayScores[i]} - ${homeScores[i]}`)
+  }
+  console.log(`Final Score: ${awayTotal} - ${homeTotal}`)
 }
+
+function scoreboard(inningScore, inningFunction, numberOfInnings) {
+  const homeScores = [];
+  const awayScores = [];
+
+  for (let i = 0; i < numberOfInnings; i++) {
+    homeScores[i] = inningFunction();
+    awayScores[i] = inningFunction();
+  }
+
+  return inningScore(homeScores, awayScores, numberOfInnings);
+}
+
+scoreboard(getInningScore, inning, 9);
+
 
 
